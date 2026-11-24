@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Finances</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#059669">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+         justify-content: center; gap: 14px; background: #fff; color: #1f2933;
+         font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  img { width: 72px; height: 72px; border-radius: 16px; }
+  a { color: #059669; font-weight: 600; text-decoration: none; }
+</style>
+</head>
+<body>
+<img src="icon-192.png" alt="">
+<div id="msg">Opening My Finances...</div>
+<a href="https://finance-app-d8nawppm6rdfzuy8bpq6nc.streamlit.app/">Open My Finances</a>
+<script>
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+  // From the home screen icon: open the app straight away. In the browser:
+  // stay here so you can add this page to the home screen.
+  if (window.matchMedia("(display-mode: standalone)").matches) {
+    location.replace("https://finance-app-d8nawppm6rdfzuy8bpq6nc.streamlit.app/");
+  } else {
+    document.getElementById("msg").textContent = "Tap \u22ee then \u201cAdd to home screen\u201d";
+  }
+</script>
+</body>
+</html>
